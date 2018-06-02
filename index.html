@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="nav-underline.js,导航栏下划线鼠标跟随效果插件,原生Javascript,不依赖任何三方库">
+    <meta name="keywords" content="nav-underline.js,HTML5导航栏特效,导航栏下划线,鼠标跟随">
+    <meta name="author" content="502832965@qq.com">
+    <title>nav-underline.js - DEMO</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            color: #999;
+        }
+        header {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 20px;
+            color: #566270;
+            line-height: 2;
+        }
+        header small {
+            color: #999;
+        }
+        pre {
+            margin: 20px auto;
+            width: 700px;
+        }
+        code {
+            text-align: left;
+        }
+        .container {
+            padding-top: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>导航栏下划线鼠标跟随效果插件</h1>
+        <small>—— 原生Javascript，不依赖任何三方库</small>
+    </header>
+
+    <div class="container">
+
+        <div>使用 nav-underline.js</div>
+        <pre>
+            <code class="html">
+                &lt!-- 引入 nav-underline.js --&gt
+                &ltscript src="src/nav-underline.js"&gt&lt/script&gt
+
+                &ltul class="nav"&gt
+                    &ltli&gt&lta href="javascript:;"&gt首页&lt/a&gt&lt/li&gt
+                    &ltli&gt&lta href="javascript:;"&gt产品中心&lt/a&gt&lt/li&gt
+                    &ltli&gt&lta href="javascript:;"&gt关于我们&lt/a&gt&lt/li&gt
+                    &ltli&gt&lta href="javascript:;"&gt联系我们&lt/a&gt&lt/li&gt
+                &lt/ul&gt
+            </code>
+        </pre>
+
+        <ul class="nav">
+            <li><a href="javascript:;">首页</a></li>
+            <li><a href="javascript:;">产品中心</a></li>
+            <li><a href="javascript:;">关于我们</a></li>
+            <li><a href="javascript:;">联系我们</a></li>
+        </ul>
+        <pre>
+            <code class="javascript">
+                NavUnderline('.nav');
+                // 或
+                new NavUnderline('.nav');
+            </code>
+        </pre>
+
+        <ul id="nav2">
+            <li><a href="javascript:;">首页</a></li>
+            <li><a href="javascript:;">产品中心</a></li>
+            <li><a href="javascript:;">关于我们</a></li>
+            <li><a href="javascript:;">联系我们</a></li>
+        </ul>
+        <pre>
+            <code class="javascript">
+                NavUnderline('#nav2', {
+                    duration: '1s',
+                    timing: 'ease',
+                    textColor: '#8FBC94',
+                    lineColor: '#C5E99B'
+                });
+                // 或
+                new NavUnderline('#nav2', {
+                    duration: '1s',         // 过渡时间
+                    timing: 'ease',         // 速度曲线 linear,ease,ease-in,ease-out,ease-in-out
+                    textColor: '#8FBC94',   // 导航栏文字颜色
+                    lineColor: '#C5E99B'    // 下划线颜色
+                });
+            </code>
+        </pre>
+
+    </div>
+
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="nav-underline.min.js"></script>
+    <script>
+        document.querySelectorAll('code').forEach(function(block) {
+            hljs.highlightBlock(block);
+        });
+        
+        // Demo 1
+        NavUnderline('.nav');
+        
+        // Demo 2
+        new NavUnderline('#nav2', {
+            duration: '1s',
+            timing: 'ease',
+            textColor: '#8FBC94',
+            lineColor: '#C5E99B'
+        });
+    </script>
+
+</body>
+</html>

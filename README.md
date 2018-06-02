@@ -1,6 +1,9 @@
 # nav-nuderline
 nav-nuderline.js 导航栏下划线鼠标跟随效果插件，原生Javascript，不依赖任何三方库
 
+### 效果:
+![image](https://github.com/wwlsky/nav-nuderline/raw/master/example.gif)
+
 ### 使用方法:
 ```
 <ul class="nav">
