@@ -53,7 +53,7 @@
         init: function (self) {
             self.nav.insertAdjacentHTML('beforeend', '<li class="underline"></li>');
             self.nav.style.cssText = 'position: relative; display: inline-block; list-style: none;';
-            self.item.forEach(function (element) {
+            Array.prototype.forEach.call(self.item, function (element) {
                 if (element.className !== 'underline') {
                     element.querySelectorAll('a')[0].style.cssText = 'text-decoration: none; color: ' + self.options.textColor + ';';
                     element.style.cssText = 'display: inline-block; margin-right: 40px;';
