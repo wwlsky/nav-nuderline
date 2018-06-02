@@ -82,12 +82,10 @@
         , event: function (self) {
             var underline = self.nav.querySelector('.underline');
             self.nav.addEventListener('mouseover', function (event) {
-                if (event.target.nodeName == 'LI' || event.target.nodeName == 'A') {
-                    var childOffsetLeft = event.target.offsetLeft,
-                        childWidth = event.target.offsetWidth;
-
-                    underline.style.left = childOffsetLeft + 'px';
-                    underline.style.width = childWidth + 'px';
+                var target = event.target;
+                if (target.nodeName == 'LI' || target.nodeName == 'A') {
+                    underline.style.left = target.offsetLeft + 'px';
+                    underline.style.width = target.offsetWidth + 'px';
                 }
             }, false);
             /* document.addEventListener('resize', function () {

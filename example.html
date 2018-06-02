@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="nav-underline.js,导航栏下划线鼠标跟随效果插件,原生Javascript,不依赖任何三方库">
+    <meta name="keywords" content="nav-underline.js,HTML5导航栏特效,导航栏下划线,鼠标跟随">
+    <meta name="author" content="502832965@qq.com">
+    <title>导航栏鼠标跟随效果 - DEMO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 20px 0;
+            height: 81px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        header h1 {
+            font-size: 20px;
+            color: #bbb;
+            line-height: 2;
+        }
+        header small {
+            color: #999;
+        }
+        .nav {
+            position: absolute;
+            top: 30px;
+            right: 100px;
+            display: inline-block;
+            margin: 20px auto;
+        }
+        .nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .nav li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .underline {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 32px;
+            height: 2px;
+            background: #333;
+            -webkit-transition: all .5s;
+               -moz-transition: all .5s;
+                -ms-transition: all .5s;
+                 -o-transition: all .5s;
+                    transition: all .5s;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>导航栏鼠标跟随效果</h1>
+    </header>
+
+    <ul class="nav">
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">产品中心</a></li>
+        <li><a href="javascript:;">关于我们</a></li>
+        <li><a href="javascript:;">联系我们</a></li>
+        <li class="underline"></li>
+    </ul>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.slim.min.js"></script>
+    <script>
+
+        // Native
+        /* (function () {
+            var nav = document.querySelector('.nav'),
+                underline = nav.querySelector('.underline');
+
+            nav.addEventListener('mouseover', function (event) {
+                var _target = event.target;
+                if (_target.nodeName == "LI" || _target.nodeName == "A") {
+                    underline.style.left = _target.offsetLeft + 'px';
+                    underline.style.width = _target.offsetWidth + 'px';
+                }
+            }, false);
+        })(); */
+
+        // jQuery
+        (function ($) {
+            var $nav = $('.nav'),
+                $underline = $nav.find('.underline');
+
+            $nav.on('mouseover', 'li', function() {
+                var _navOffsetLeft = $nav.offset().left,
+                    _targetOffsetLeft = $(this).offset().left,
+                    _targetWidth = $(this).width();
+
+                $underline.css({
+                    'left': _targetOffsetLeft - _navOffsetLeft + 'px',
+                    'width': _targetWidth + 'px'
+                });
+            });
+        })(jQuery);
+
+    </script>
+    
+</body>
+</html>
